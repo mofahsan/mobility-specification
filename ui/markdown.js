@@ -13,7 +13,7 @@
 // //
 // function renderMarkdown(branchName,file) {
 //   fetch(
-//     `https://raw.githubusercontent.com/ondc-official/mobility-specification/${branchName}/api/components/docs/${file}.md`
+//     `https://raw.githubusercontent.com/mofahsan/mobility-specification/${branchName}/api/components/docs/${file}.md`
 //   )
 //     .then((response) => response.text())
 //     .then((text) => {
@@ -49,7 +49,7 @@ function renderDropdownMarkdown(branchname, filteredData) {
 function renderMarkdown(branchName, file) {
   console.log("file---", file);
   fetch(
-    `https://raw.githubusercontent.com/ondc-official/mobility-specification/${branchName}/api/components/docs/${file}.md`
+    `https://raw.githubusercontent.com/mofahsan/mobility-specification/${branchName}/api/components/docs/${file}.md`
   )
     .then((response) => response.text())
     .then(async (text) => {

@@ -15,7 +15,7 @@ function getStringAfterEquals(inputString) {
 
 async function readBuildFile(branchName, isError) {
   if (!branchName) return;
-  const url = `https://api.github.com/repos/ondc-official/mobility-specification/contents/ui/build.js?ref=${branchName}`;
+  const url = `https://api.github.com/repos/mofahsan/mobility-specification/contents/ui/build.js?ref=${branchName}`;
 
   try {
     const {first, second} = tokens;  
@@ -70,8 +70,8 @@ async function fetchRequest(url){
 
 async function loadContracts() {
   //fetch branches & tags from repo
-  const BRANCHES_URL= "https://api.github.com/repos/ondc-official/mobility-specification/branches";
-  const TAGS_URL= "https://api.github.com/repos/ondc-official/mobility-specification/tags";
+  const BRANCHES_URL= "https://api.github.com/repos/mofahsan/mobility-specification/branches";
+  const TAGS_URL= "https://api.github.com/repos/mofahsan/mobility-specification/tags";
                   
   let response1, response2;
   response1 = await fetchRequest(BRANCHES_URL)

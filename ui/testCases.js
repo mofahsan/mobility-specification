@@ -11,7 +11,7 @@ function renderDropdownCases(branchname,filteredData){
 
 function renderCases(branchName,file) {
   fetch(
-    `https://raw.githubusercontent.com/ONDC-Official/mobility-specification/${branchName}/api/components/docs/${file}.md`
+    `https://raw.githubusercontent.com/mofahsan/mobility-specification/${branchName}/api/components/docs/${file}.md`
   )
   .then((response) => response.text())
   .then((text) => {

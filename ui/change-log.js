@@ -31,7 +31,7 @@ function extractTextBetweenBackticks(inputString) {
 function renderMDFile(branchName, file) {
   console.log('branchName', branchName)
   fetch(
-    `https://raw.githubusercontent.com/ONDC-Official/mobility-specification/${branchName}/api/components/docs/changeLog/${file}.md`
+    `https://raw.githubusercontent.com/mofahsan/mobility-specification/${branchName}/api/components/docs/changeLog/${file}.md`
   )
     .then((response) => response.text())
     .then(async (text) => {
