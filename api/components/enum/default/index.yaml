@@ -52,35 +52,6 @@ search: &search
               code: AIRLINE
               description: Describes the vehicle category as Airline
               reference: <PR/Issue/Discussion Links md format text
-          variant:
-            - code: AC
-              description: Describes the vehicle variant for category type BUS
-              reference: <PR/Issue/Discussion Links md format text
-            - code: NON-AC
-              description: Describes the vehicle variant for category type BUS
-              reference: <PR/Issue/Discussion Links md format text
-          energy_type: 
-            - code: ELECTRIC
-              description: Describes the vehicle energy_type as Electric
-              reference: <PR/Issue/Discussion Links md format text
-            - code: PETRO
-              description: Describes the vehicle energy_type as Petrol
-              reference: <PR/Issue/Discussion Links md format text
-            - code: DIESEL
-              description: Describes the vehicle energy_type as Diesel
-              reference: <PR/Issue/Discussion Links md format text
-            - code: HYDROGEN
-              description: Describes the vehicle energy_type as Hydrogen
-              reference: <PR/Issue/Discussion Links md format text
-            - code: BIOFUELS
-              description: Describes the vehicle energy_type as Biofuels
-              reference: <PR/Issue/Discussion Links md format text
-            - code: CNG
-              description: Describes the vehicle energy_type as CNG
-              reference: <PR/Issue/Discussion Links md format text
-            - code: LPG
-              description: Describes the vehicle energy_type as LPG
-              reference: <PR/Issue/Discussion Links md format text
         type: &search_message_intent_fulfillment_type
           - &search_message_intent_fulfillment_type_0
             code: DELIVERY
@@ -160,6 +131,7 @@ search: &search
                 description: Describes the state when the rider has arrived at the pickup
                   location.
                 reference: <PR/Issue/Discussion Links md format text
+
 on_search: &on_search
   context: &on_search_context
     action: &on_search_context_action
@@ -246,7 +218,41 @@ on_search: &on_search
                 code: CONNECT
                 description: Describes the kind of type of journey
                 reference: <PR/Issue/Discussion Links md format text
-        fulfillments: *search_message_intent_fulfillment
+        fulfillments: &on_search_message_intent_fulfillment
+          vehicle:
+            category: *search_message_intent_fulfillment_vehicle_category
+            variant:
+              - code: AC
+                description: Describes the vehicle variant for category type BUS
+                reference: <PR/Issue/Discussion Links md format text
+              - code: NON-AC
+                description: Describes the vehicle variant for category type BUS
+                reference: <PR/Issue/Discussion Links md format text
+            energy_type: 
+              - code: ELECTRIC
+                description: Describes the vehicle energy_type as Electric
+                reference: <PR/Issue/Discussion Links md format text
+              - code: PETRO
+                description: Describes the vehicle energy_type as Petrol
+                reference: <PR/Issue/Discussion Links md format text
+              - code: DIESEL
+                description: Describes the vehicle energy_type as Diesel
+                reference: <PR/Issue/Discussion Links md format text
+              - code: HYDROGEN
+                description: Describes the vehicle energy_type as Hydrogen
+                reference: <PR/Issue/Discussion Links md format text
+              - code: BIOFUELS
+                description: Describes the vehicle energy_type as Biofuels
+                reference: <PR/Issue/Discussion Links md format text
+              - code: CNG
+                description: Describes the vehicle energy_type as CNG
+                reference: <PR/Issue/Discussion Links md format text
+              - code: LPG
+                description: Describes the vehicle energy_type as LPG
+                reference: <PR/Issue/Discussion Links md format text
+          type: *search_message_intent_fulfillment_type
+          stops: *search_message_intent_fulfillment_stops
+          state: *search_message_intent_fulfillment_state
         payments: &on_search_message_catalog_providers_payments
           status: &on_search_message_catalog_providers_payments_status
             - &on_search_message_catalog_providers_payments_status_0
@@ -293,7 +299,7 @@ select: &select
   message: &select_message
     order: &select_message_order
       items: *on_search_message_catalog_providers_items
-      fulfillments: *search_message_intent_fulfillment
+      fulfillments: *on_search_message_intent_fulfillment
       payments: *on_search_message_catalog_providers_payments
       status: &select_message_order_status
         - &select_message_order_status_0
@@ -341,7 +347,7 @@ on_select: &on_select
   message: &on_select_message
     order: &on_select_message_order
       items: *on_search_message_catalog_providers_items
-      fulfillments: *search_message_intent_fulfillment
+      fulfillments: *on_search_message_intent_fulfillment
       payments: *on_search_message_catalog_providers_payments
       status: *select_message_order_status
       quote: &on_select_message_order_quote
@@ -387,7 +393,7 @@ on_init: &on_init
   message: &on_init_message
     order: &on_init_message_order
       items: *on_search_message_catalog_providers_items
-      fulfillments: *search_message_intent_fulfillment
+      fulfillments: *on_search_message_intent_fulfillment
       payments: *on_search_message_catalog_providers_payments
       quote: *on_select_message_order_quote
       cancellation_terms: &on_init_message_order_cancellation_terms
