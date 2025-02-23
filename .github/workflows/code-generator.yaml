@@ -1,0 +1,20 @@
+name: Trigger Repo 2 Pipeline
+on:
+  push:
+    paths:
+      - "api/build/build.yaml"
+    branches:
+      - release-TRV11-2.0.0  # Change to your primary branch
+jobs:
+  trigger-mobility-specification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Repo 2 Workflow
+        run: |
+          curl --location 'https://api.github.com/repos/mofahsan/api-service-generator/dispatches' \
+          --header 'Accept: application/vnd.github.v3+json' \
+          --header 'Authorization: token ${{ secrets.PAT }}' \
+          --header 'Content-Type: application/json' \
+          --data '{
+              "event_type": "trigger-pipeline"
+          }'
