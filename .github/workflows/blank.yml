@@ -2,7 +2,7 @@ name: Trigger Repo 2 Pipeline
 on:
   push:
     paths:
-      - “api/build/build.yaml”
+      - "api/build/build.yaml"
     branches:
       - release-TRV11-2.0.0  # Change to your primary branch
 jobs:
