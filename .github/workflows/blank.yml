@@ -13,5 +13,5 @@ jobs:
         run: |
           curl -X POST -H “Authorization: token ${{ secrets.PAT }}” \
                -H “Accept: application/vnd.github.v3+json” \
-               https://api.github.com/repos/mofahsan/mobility-specification/actions/workflows/generator.yml/dispatches \
+               https://api.github.com/repos/mofahsan/api-service-generator/actions/workflows/generator.yml/dispatches \
                -d ‘{“ref”:“main”}’
