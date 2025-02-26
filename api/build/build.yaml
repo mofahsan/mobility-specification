@@ -978,7 +978,7 @@ components:
       properties:
         fulfillment_state:
           description: The state of fulfillment during which this term is applicable.
-          allOf:
+          allOf:  
             - $ref: '#/components/schemas/FulfillmentState'
         reason_required:
           description: Indicates whether a reason is required to cancel the order
