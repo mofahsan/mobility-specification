@@ -55,7 +55,7 @@ paths:
               additionalProperties: false
               properties:
                 context:
-                  allOf:
+                  allOf: 
                     - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
