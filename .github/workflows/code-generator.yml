@@ -112,7 +112,9 @@ jobs:
       - name: Add latest build.yaml file
         run: |
           ssh -i ./key.pem ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} <<EOF
-          git clone --single-branch --branch release-TRV10-2.0.1 https://github.com/mofahsan/mobility-specification.git \$REPO_DIR\mobility-specification
+          REPO_DIR=~/ONDC-automation-framework/api-service-generator
+          git clone --single-branch --branch release-TRV10-2.0.1 https://github.com/mofahsan/mobility-specification.git \$REPO_DIR/mobility-specification
+          mv -f \$REPO_DIR/mobility-specification/api/build/build.yaml  \$REPO_DIR/config/build.yaml
           EOF
 
       - name: Automation Api Server Deployment
