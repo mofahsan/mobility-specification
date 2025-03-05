@@ -112,7 +112,7 @@ jobs:
       - name: Add latest build.yaml file
         run: |
           ssh -i ./key.pem ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} <<EOF
-          git clone --single-branch --branch main https://github.com/mofahsan/mobility-specification.git \$REPO_DIR
+          git clone --single-branch --branch release-TRV10-2.0.1 https://github.com/mofahsan/mobility-specification.git \$REPO_DIR\mobility-specification
           EOF
 
       - name: Automation Api Server Deployment
